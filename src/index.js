@@ -1,5 +1,5 @@
 require("dotenv").config();
-require("./config/chatgpt");
+//require("./config/chatgpt");
 /* 
 require("./config/mongo").then(() => {
   //Previous database config

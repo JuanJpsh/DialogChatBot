@@ -1,15 +1,10 @@
 const { Router } = require("express");
 const router = Router();
-const demoChatController = require("../../controllers/demochat.controller");
 const bookingsController = require("../../controllers/bookings.controller")
 const authHackController = require("../../controllers/authhack.controller")
 const userHackController = require("../../controllers/userhack.controller")
 
 router
-
-  .post("/message", demochatController.getMessage)
-  //.get("/", demochatController.demochatgpt)
-  .get("/message", demoChatController.getMessage)
   .get("/bookings", bookingsController.getBookings)
   .post("/bookings/create",bookingsController.createBooking)
   .post("/login", authHackController.login)

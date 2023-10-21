@@ -1,6 +1,6 @@
-const openai = require("../../config/chatgpt")
 const fs = require("fs");
 const { join } = require("path");
+const axios = require('axios');
 
 const getPrompt = async () => {
     const path = `${__dirname}`;
@@ -18,20 +18,26 @@ const getDiagnosis = async (req, res) => {
     }
 
     const prompt = await getPrompt();
-
-    const chatCompletion = await openai.chat.completions.create({
+    const url = "https://api.openai.com/v1/chat/completions"
+    const config = {
+        headers: {
+            'Authorization': "Bearer "+process.env.OPENAI_API_KEY,
+            'Content-Type': 'application/json'
+        }
+    };
+    const postData = {
+        model: 'gpt-3.5-turbo',
         messages: [
             { role: "system", content: prompt },
             { role: "assistant", content: "OK" },
             { role: "user", content: symptomatology }
-        ],
-        model: "gpt-3.5-turbo",
-    });
+        ]
+    };
 
-    const response = chatCompletion['choices'][0]['message']['content']
-    console.log(response)
+    const chatCompletion = await axios.post(url, postData, config);
 
-    res.status(200).json(chatCompletion);
+    const response = chatCompletion['data']['choices'][0]['message']['content']
+    res.status(200).json({message: response});
 };
 
 module.exports = {
