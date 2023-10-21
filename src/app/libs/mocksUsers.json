@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Jorge Iván Solano",
+    "username": "jorgeisolano",
+    "password": "clave123",
+    "session": "close"
+  },
+  {
+    "id": 2,
+    "name": "Kevin Alarcón",
+    "username": "kevinalarcon",
+    "password": "clave123",
+    "session": "close"
+  },
+  {
+    "id": 3,
+    "name": "Juan Pablo Solarte",
+    "username": "juanpablosh",
+    "password": "clave123",
+    "session": "close"
+  }
+]
