@@ -1,10 +1,10 @@
 const openai = require("../../config/chatgpt")
-const { readFileSync } = require("fs");
+const fs = require("fs");
 const { join } = require("path");
 
 const getPrompt = async () => {
     const path = `${__dirname}`;
-    const text = readFileSync(join(path, "prompt.txt"), "utf-8")
+    const text = fs.readFileSync(join(path, "prompt.txt"), "utf-8")
     return text
 }
 
