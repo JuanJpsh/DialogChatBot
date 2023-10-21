@@ -1,4 +1,6 @@
-require("dotenv").config();/* 
+require("dotenv").config();
+require("./config/chatgpt");
+/* 
 require("./config/mongo").then(() => {
   //Previous database config
   require("./app/libs/initialSetup").then((resp) => {
@@ -14,6 +16,8 @@ require("./config/mongo").then(() => {
     });
   });
 }); */
+
+
 
 const app = require("./app/app");
 

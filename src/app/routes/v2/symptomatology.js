@@ -3,6 +3,6 @@ const router = Router();
 const symptomatologyController = require("../../controllers/symptomatology.controller");
 
 router
-  .get("/", symptomatologyController.getDiagnosis)
+  .post("/", symptomatologyController.getDiagnosis)
 
 module.exports = router;
