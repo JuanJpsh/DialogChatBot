@@ -1,4 +1,4 @@
-const askQuestion = (req, res) => {
+const getDiagnosis = (req, res) => {
     let response = {
         response: "Se supone que las preguntas vienen de la base de datos, pero actualmente no puedo hacerlo."
     }
@@ -6,5 +6,5 @@ const askQuestion = (req, res) => {
 };
 
 module.exports = {
-    askQuestion
+    getDiagnosis
 };
