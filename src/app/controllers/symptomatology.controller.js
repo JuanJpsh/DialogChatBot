@@ -4,7 +4,8 @@ const axios = require('axios');
 
 const getPrompt = async () => {
     const path = `${__dirname}`;
-    const text = fs.readFileSync(join(path, "promptEs.txt"), "utf-8")
+    const prompt = process.env.PROMPT
+    const text = fs.readFileSync(join(path, prompt + ".txt"), "utf-8")
     return text
 }
 
