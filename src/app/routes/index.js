@@ -9,7 +9,7 @@ const removeExtension = (fileName) => {
 };
 
 fs.readdirSync(versionPath).filter((folder) => {
-  const skip = ["index.js", "v1"].includes(folder);
+  const skip = ["index.js"].includes(folder);
   if (!skip) {
     const routerPath = `${versionPath}/${folder}`;
     fs.readdirSync(routerPath).filter((file) => {
