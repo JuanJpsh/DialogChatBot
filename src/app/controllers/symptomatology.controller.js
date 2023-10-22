@@ -12,8 +12,9 @@ const getDiagnosis = async (req, res) => {
     const { symptomatology } = req.body
 
     if (process.env.DEPLOY === "false") {
+        const diagnosis = "{Recommendations}\n[\"Rest and avoid sudden movements\", \"Stay hydrated\"]\n\n{Medications}\n[]\n\n{Examinations}\n[\"Blood pressure measurement\", \"Ear examination\"]"
         return res.status(200).json({
-            diagnosis: "{Recommendations}\n[\"Rest and avoid sudden movements\", \"Stay hydrated\"]\n\n{Medications}\n[]\n\n{Examinations}\n[\"Blood pressure measurement\", \"Ear examination\"]"
+            "diagnosis": formatearRespuestaChatGPT(diagnosis)
         });
     }
 
