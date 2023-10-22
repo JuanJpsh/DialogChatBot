@@ -38,7 +38,9 @@ const getDiagnosis = async (req, res) => {
     const chatCompletion = await axios.post(url, postData, config);
 
     const response = chatCompletion['data']['choices'][0]['message']['content']
+    console.log("Origen: " + response)
     const finalResponse = {"diagnosis": formatearRespuestaChatGPT(response)}
+    console.log("Final: " + finalResponse)
     res.status(200).json(finalResponse);
 };
 
