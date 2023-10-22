@@ -10,7 +10,7 @@ const getPrompt = async () => {
 
 const getDiagnosis = async (req, res) => {
     const { symptomatology } = req.body
-
+    console.log("Input: " + symptomatology)
     if (process.env.DEPLOY === "false") {
         const diagnosis = "{Recommendations}\n[\"Rest and avoid sudden movements\", \"Stay hydrated\"]\n\n{Medications}\n[]\n\n{Examinations}\n[\"Blood pressure measurement\", \"Ear examination\"]"
         return res.status(200).json({
@@ -40,7 +40,7 @@ const getDiagnosis = async (req, res) => {
     const response = chatCompletion['data']['choices'][0]['message']['content']
     console.log("Origen: " + response)
     const finalResponse = {"diagnosis": formatearRespuestaChatGPT(response)}
-    console.log("Final: " + finalResponse)
+    console.log("Final: " + finalResponse["diagnosis"])
     res.status(200).json(finalResponse);
 };
 
