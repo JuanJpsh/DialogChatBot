@@ -38,10 +38,10 @@ const getDiagnosis = async (req, res) => {
     const chatCompletion = await axios.post(url, postData, config);
 
     const response = chatCompletion['data']['choices'][0]['message']['content']
-    console.log("Origen: " + response)
-    const finalResponse = {"diagnosis": formatearRespuestaChatGPT(response)}
-    console.log("Final: " + finalResponse["diagnosis"])
-    res.status(200).json(finalResponse);
+    //console.log("Origen: " + response)
+    //const finalResponse = {"diagnosis": formatearRespuestaChatGPT(response)}
+    //console.log("Final: " + finalResponse["diagnosis"])
+    res.status(200).json({diagnosis:response});
 };
 
 function formatearRespuestaChatGPT(input) {
